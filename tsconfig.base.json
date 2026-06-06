@@ -192,6 +192,9 @@
       "@activepieces/piece-browse-ai": [
         "packages/pieces/community/browse-ai/src/index.ts"
       ],
+      "@activepieces/piece-browser-automator": [
+        "packages/pieces/community/browser-automator/src/index.ts"
+      ],
       "@activepieces/piece-browserless": [
         "packages/pieces/community/browserless/src/index.ts"
       ],

@@ -28,7 +28,19 @@ export const platformPlanService = (log: FastifyBaseLogger) => ({
 
     async getOrCreateForPlatform(platformId: string): Promise<PlatformPlan> {
         const platformPlan = await platformPlanRepo().findOneBy({ platformId })
-        if (!isNil(platformPlan)) return platformPlan
+        if (!isNil(platformPlan)) {
+            if (edition === ApEdition.COMMUNITY || edition === ApEdition.ENTERPRISE) {
+                const plan = getInitialPlanByEdition()
+                const needsSync = Object.keys(plan).some((key) => {
+                    const k = key as keyof typeof plan
+                    return plan[k] !== undefined && (platformPlan as Record<string, unknown>)[k] !== plan[k]
+                })
+                if (needsSync) {
+                    return platformPlanRepo().save({ ...platformPlan, ...plan })
+                }
+            }
+            return platformPlan
+        }
 
         return distributedLock(log).runExclusive({
             key: `platform_plan_${platformId}`,
