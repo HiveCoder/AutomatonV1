@@ -3679,6 +3679,17 @@
         "tslib": "2.6.2",
       },
     },
+    "packages/pieces/community/indeed-automator": {
+      "name": "@activepieces/piece-indeed-automator",
+      "version": "0.0.1",
+      "dependencies": {
+        "@activepieces/pieces-common": "workspace:*",
+        "@activepieces/pieces-framework": "workspace:*",
+        "@activepieces/shared": "workspace:*",
+        "playwright-core": "1.54.1",
+        "tslib": "2.6.2",
+      },
+    },
     "packages/pieces/community/influencers-club": {
       "name": "@activepieces/piece-influencers-club",
       "version": "0.0.5",
@@ -9427,6 +9438,8 @@
     "@activepieces/piece-imap": ["@activepieces/piece-imap@workspace:packages/pieces/community/imap"],
 
     "@activepieces/piece-imeetify": ["@activepieces/piece-imeetify@workspace:packages/pieces/community/imeetify"],
+
+    "@activepieces/piece-indeed-automator": ["@activepieces/piece-indeed-automator@workspace:packages/pieces/community/indeed-automator"],
 
     "@activepieces/piece-influencers-club": ["@activepieces/piece-influencers-club@workspace:packages/pieces/community/influencers-club"],
 
